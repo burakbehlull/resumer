@@ -1,10 +1,9 @@
 import { useState } from 'react'
 
 function App() {
-
   return (
     <>
-		<h1>Hello Resumer!</h1>
+      <h1>Merhaba Resumer!</h1>
     </>
   )
 }
