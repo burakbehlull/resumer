@@ -12,7 +12,6 @@ import pageRoute from './routers/pageRoute.js'
 const app:Application = express()
 
 db()
-
 const corsOptions : CorsOptions = {
     origin: true,
     credentials: true
