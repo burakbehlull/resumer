@@ -29,5 +29,5 @@ app.use(morgan('dev'))
 // sayfalar
 app.use('/', pageRoute)
 
-app.listen(80, ()=> console.log('80 portunda başlatıldı.'))
+app.listen(process.env.PORT || 80, ()=> console.log('80 portunda başlatıldı.'))
 
