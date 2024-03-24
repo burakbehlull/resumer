@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import './sass/base/reset';
 
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../public/fonts/geist-mono.ttf') format('truetype');
+}
+
 html {
-    font-family: "Montserrat", sans-serif;
+  font-family: 'Geist Mono', monospace;
 }
