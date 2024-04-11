@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+
 dotenv.config()
-const MONGODB_URI = process.env.MONGODB_URI
+
 function db():Promise<void>{
-    const conn = mongoose.connect(MONGODB_URI)
+    const conn = mongoose.connect(process.env.MONGODB_URI)
     .then(()=> console.log('Veritabanına bağlandı'))
     .catch((err)=> console.log('Hata: ', err))
     return conn
