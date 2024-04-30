@@ -7,9 +7,8 @@ function index(req: Request, res: Response){
 async function register(req:Request, res: Response){
     try {
         const {displayName, username, email, password} = req.body
-        const user = await User.findOne({email: email})
-        const usernameControl = await User.findOne({username: username})
-        if(user || usernameControl) {
+        const user = await User.findOne({ $or: [{ email: email }, { username: username }] })
+        if(user) {
             res.json({
                 message: 'Böyle bir kullanıcı var.'
             })   
