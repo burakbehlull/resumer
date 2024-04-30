@@ -1,7 +1,7 @@
 import {Request, Response} from 'express'
 import User from '../models/User.js'
 function index(req: Request, res: Response){
-    res.json({})
+    res.send("User Controller INDEX")
 }
 
 async function register(req:Request, res: Response){
@@ -28,7 +28,38 @@ async function register(req:Request, res: Response){
     }
 }
 
+async function login(req: Request, res: Response){
+    const {email, password} = req.body
+    try {
+        const user = await User.findOne({email: email})
+        if(user) {
+            if(user.password === password){
+                res.json({
+                    success: true,
+                    message: 'Kullanıcı girişi başarılı'
+                })
+            }
+
+            res.json({
+                success: false,
+                message: 'Parola yanlış.'
+            })
+        }
+
+        res.json({
+            success: false,
+            message: 'Kullanıcı mevcut değil.'
+        })
+    } catch (err) {
+        return {
+            success: false,
+            error: err
+        }
+    }
+}
+
 export {
     index,
-    register
+    register,
+    login
 }
