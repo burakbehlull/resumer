@@ -1,64 +1,30 @@
 import {Request, Response} from 'express'
 import User from '../models/User.js'
-function index(req: Request, res: Response){
-    res.send("User Controller INDEX")
-}
 
-async function register(req:Request, res: Response){
+async function findUser(req:Request, res:Response){
+    const {username} = req.body
     try {
-        const {displayName, username, email, password} = req.body
-        const user = await User.findOne({ $or: [{ email: email }, { username: username }] })
-        if(user) {
-            res.json({
-                message: 'Böyle bir kullanıcı var.'
-            })   
-        }
-        await User.create({displayName, username, email, password})
-        res.json({
-            success: true,
-            message: 'Kullanıcı yaratıldı'
-        })
-
-    } catch (err) {
-        return {
-           success: false,
-           error: err 
-        }
-    }
-}
-
-async function login(req: Request, res: Response){
-    const {email, password} = req.body
-    try {
-        const user = await User.findOne({email: email})
-        if(user) {
-            if(user.password === password){
-                res.json({
-                    success: true,
-                    message: 'Kullanıcı girişi başarılı'
-                })
-            }
-
-            res.json({
-                success: false,
-                message: 'Parola yanlış.'
+        const user = User.findOne({username: username})
+        if(user){
+            res.status(200).json({
+                success: true,
+                message: 'Kullanıcı bulundu!',
+                user: user
             })
         }
 
-        res.json({
-            success: false,
-            message: 'Kullanıcı mevcut değil.'
+        res.status(204).json({
+            success: true,
+            message: 'Kullanıcı bulanamadı.'
         })
     } catch (err) {
-        return {
+        return res.status(400).json({
             success: false,
             error: err
-        }
+        })
     }
 }
 
 export {
-    index,
-    register,
-    login
+    findUser
 }
