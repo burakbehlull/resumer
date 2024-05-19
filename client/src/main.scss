@@ -5,6 +5,25 @@
   src: url('../public/fonts/geist-mono.ttf') format('truetype');
 }
 
-html {
+:root{
   font-family: 'Geist Mono', monospace;
 }
+
+html {
+  padding: 2rem 4rem;
+}
+
+header {
+  @import './sass/layout/nav';
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  section {
+    height: 100%;
+    width: 100%;
+    //* sections //*
+  }
+}
+

@@ -12,7 +12,7 @@
     "client:dev":"cd client && npm run dev",
     "client:build":"cd client && npm run build",
 
-    "dev": "concurrently \"npm run client:dev\" \"npm run server:build\" \"npm run server:start\""
+    "dev": "concurrently \"npm run client:dev\" \"npm run server:build\" \"npm run server:dev\""
     
   },
   "keywords": [],

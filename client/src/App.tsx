@@ -8,9 +8,9 @@ function App() {
       <header>
         <nav>
           <ul>
-            <li>RESUMER</li>
-            <li>Profile Name</li>
-            <li>Profile</li>
+            <li><a href="#">RESUMER</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Profile Name</a></li>
           </ul>
         </nav>
       </header>
