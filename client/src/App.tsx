@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './main.scss'
+import Header from './pages/Header'
 function App() {
 
   return (
@@ -16,7 +17,7 @@ function App() {
       </header>
 
       <main>
-        <h1>Merhaba</h1>
+        <Header />
       </main>
     </>
   )

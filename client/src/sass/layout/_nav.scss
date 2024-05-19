@@ -9,16 +9,24 @@ nav {
 
         gap: 1.5rem;
 
-        // padding-right: 2.7rem;
-        
         li:nth-child(1) {
             font-size: 2rem;
             margin-right: auto;
         }
         li {
             :where(a, a:visited) {
-                color: rgb(14, 13, 13);
+                color: $textColor1;
                 cursor: pointer;
+            }
+        }
+    }
+
+    @media (max-width: 640px){
+        ul {
+            gap: 13px;
+            flex-direction: column;
+            li:nth-child(1) {
+                margin-right: 0;
             }
         }
     }
