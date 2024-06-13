@@ -22,11 +22,15 @@ header {
 main {
   height: 100%;
   width: 100%;
-  section {
-    height: 100%;
-    width: 100%;
-    //* sections //*
-    @import './sass/pages/header';
-  }
 }
+
+section {
+  height: 100%;
+  width: 100%;
+  //* sections //*
+  @import './sass/pages/header';
+  @import './sass/pages/profile';
+  }
+// PROFİLE 
+@import './sass/pages/profileSide';
 

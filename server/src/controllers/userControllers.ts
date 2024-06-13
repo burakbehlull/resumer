@@ -4,16 +4,16 @@ import User from '../models/User.js'
 async function findUser(req:Request, res:Response){
     const {username} = req.body
     try {
-        const user = User.findOne({username: username})
+        const user = await User.findOne({username: username})
         if(user){
-            res.status(200).json({
+            return res.status(200).json({
                 success: true,
                 message: 'Kullanıcı bulundu!',
                 user: user
             })
         }
 
-        res.status(204).json({
+        return res.status(204).json({
             success: true,
             message: 'Kullanıcı bulanamadı.'
         })

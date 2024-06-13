@@ -16,7 +16,7 @@ const app:Application = express()
 db()
 const corsOptions : CorsOptions = {
     origin: true,
-    credentials: true
+    credentials: false
 }
 
 // middlewares
