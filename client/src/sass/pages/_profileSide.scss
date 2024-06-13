@@ -4,13 +4,18 @@
     justify-content: center;
     align-items: center;
   }
-  .profileHead{
-    // background-color: green;
-    width: 100%;
-    height: calc(30vh);
-    padding: 2em;
+
+%template {
     display: flex;
+    width: 100%;
+    height: calc(32vh);
+    padding: 2em;
+}
+.profileHead {
+    // background-color: green;
+    @extend %template;
     flex-direction: row;
+    justify-content: space-between;
     div:nth-child(1){
       h3 {
         color: $textColor1;
@@ -27,7 +32,7 @@
       ul {
         padding-top: .5em;
         display: flex;
-        gap: 15px;
+        gap: 7px;
         li {
           padding: 2px 12px;
           background-color: white;
@@ -44,7 +49,28 @@
       }
     }
     div:nth-child(2){
-      background-color: brown;
+      height: max(23vh);
+      padding-left: 2.3em;
+      img {
+        height: 100%;
+        object-fit: contain;
+        border-radius: 15px;
+      }
     }
-  }  
-  
+}  
+.profileAbout {
+    @extend %template;
+    flex-direction: column;
+    
+
+    h2 {
+      font-size: 1.7em;
+      color: $textColor1;
+    }
+    div {
+      p {
+        font-size: .9em;
+        color: $textColor2;
+      }
+    }
+}

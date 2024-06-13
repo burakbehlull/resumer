@@ -1,9 +1,9 @@
 
-interface IHeadProps {
+interface IProps {
     data:any,
 
 }
 
 export type {
-    IHeadProps
+    IProps
 }
