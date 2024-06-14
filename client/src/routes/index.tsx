@@ -11,7 +11,7 @@ function Routes() {
         {
             path: '/profile/:username',
             element: <Profile />,
-        }, 
+        }
     ])
     return routes;    
 }

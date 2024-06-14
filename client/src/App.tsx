@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './main.scss'
 import Header from './pages/Header'
-import { Outlet } from 'react-router-dom'
 function App() {
 
   return (
@@ -18,7 +17,7 @@ function App() {
       </header>
 
       <main>
-        <Outlet />
+        <Header />
       </main>
     </>
   )
