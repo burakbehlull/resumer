@@ -11,6 +11,12 @@
     height: calc(32vh);
     padding: 2em;
 }
+%headerText {
+  font-size: max(1.7em);
+  color: $textColor1;
+}
+
+
 .profileHead {
     // background-color: green;
     @extend %template;
@@ -50,7 +56,7 @@
     }
     div:nth-child(2){
       height: max(23vh);
-      padding-left: 2.3em;
+      padding-left: 4.3em;
       img {
         height: 100%;
         object-fit: contain;
@@ -63,8 +69,7 @@
     flex-direction: column;
     
     h2 {
-      font-size: max(1.7em);
-      color: $textColor1;
+      @extend %headerText;
     }
     div {
 	  padding-top: 1rem;	
@@ -79,8 +84,7 @@
   padding-top: 5rem;
   flex-direction: column;
   h2 {
-    font-size: max(1.7em);
-    color: $textColor1;
+    @extend %headerText;
   }
   .experience {
     padding-top: 1em;
@@ -130,8 +134,7 @@
   padding-top: 5rem;
   flex-direction: column;
   h2 {
-    font-size: max(1.7em);
-    color: $textColor1;
+    @extend %headerText;
   }
   .chapter {
     padding-top: 1em;
@@ -161,15 +164,12 @@
     }
   }
 }
-
-
 .profileSkills {
   @extend %template;
   padding-top: 5rem;
   flex-direction: column;
   h2 {
-    font-size: max(1.7em);
-    color: $textColor1;
+    @extend %headerText;
   }
   div {
     display: flex;
@@ -183,6 +183,38 @@
       font-size: 13px;
       padding: 1px 6px;
       border-radius: 10px;
+      &:hover {
+        cursor: pointer;
+        background-color: #1c273f;
+      }
+    }
+    
+  }
+}
+.profileLanguages {
+  @extend %template;
+  padding-top: 3rem;
+  flex-direction: column;
+  h2 {
+    @extend %headerText;
+  }
+  div {
+    padding-top: .7rem;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    h4 {
+      font-size: 18px;
+      color: $textColor1;
+      font-weight: 500;
+    }
+    pre {
+      color: #111827;
+      background-color: #F3F4F6;
+      padding: 2px 5px;
+      height: 2.3em;
+      border-radius: 1em .7em;
     }
     
   }
@@ -210,14 +242,13 @@
   
   .profileAbout {
     padding: 0;
-    padding-top: 13.5rem;
+    padding-top: 11.5rem;
     width: 100%;
     height: auto;
   }
-  .profileEducation {
+  .profileEducation, .profileLanguages {
     padding: 0;
     padding-top: 3rem;
-    
   }
 }
 @media screen and (max-width: 873px){
