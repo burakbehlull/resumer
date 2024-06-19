@@ -5,10 +5,10 @@ import { EducationChapter } from './index'
 const Education : React.FC<IProps> = ({data}) =>{
     
     return (
-        <div className='profileEducation'>
+        <article className='profileEducation'>
             <h2>Education</h2>
             <EducationChapter data={data} />
-        </div>
+        </article>
     )
 }
 
