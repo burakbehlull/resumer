@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Head, About, WorkExperience, Education, Skills, Languages } from './index'
+import { Head, About, WorkExperience, Education, Skills, Languages, Projects } from './index'
 
 const Profile : React.FC = () =>{
     const [data, setData] = useState<any>({})
@@ -29,6 +29,7 @@ const Profile : React.FC = () =>{
                 <Education data={user} />
                 <Skills data={user} />
                 <Languages data={user} />
+                <Projects data={user} />
 
             </section>
         </div>

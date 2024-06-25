@@ -11,6 +11,8 @@ import Skills from './Skills'
 import Languages from './Languages'
 
 import Language from './Language'
+import Projects from './Projects'
+import Project from './Project'
 
 export {
     Head,
@@ -21,5 +23,7 @@ export {
     EducationChapter,
     Skills,
     Languages,
-    Language
+    Language,
+    Projects,
+    Project
 }
