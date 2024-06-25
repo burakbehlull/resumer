@@ -1,12 +1,13 @@
 import React from 'react'
-import {IProps} from '../../types/propsTypes'
+import { LanguageType } from '../../types/index'
 
-const Language : React.FC<IProps> = ({data}) =>{
-    
+
+
+const Language : React.FC<LanguageType> = ({name, level}) =>{
     return (
         <div className='language'>
-            <h4>English</h4>
-            <pre>Beginner</pre>
+            <h4> {name} </h4>
+            <pre> {level} </pre>
         </div>
     )
 }

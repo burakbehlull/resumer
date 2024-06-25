@@ -1,19 +1,19 @@
 import React from 'react'
-import {IProps} from '../../types/propsTypes'
+import { ExperienceType } from '../../types/index'
 
-const Experience : React.FC<IProps> = ({data}) =>{
+const Experience : React.FC<ExperienceType> = ({name, type, link, date, position, description}) =>{
     
     return (
         <div className='experience'>
             <div>
                 <div>
-                    <h3><a href='#'>Github</a></h3>
-                    <pre>Remote</pre>
+                    <h3><a href={link}>{name}</a></h3>
+                    <pre> {type} </pre>
                 </div>
-                <p>2021 - Present</p>
+                <p> {date}</p>
             </div>
-            <h4>Fullstack Web Developer</h4>
-            <p>Leading the development of the Film.io platform. Technologies: React, TypeScript, Node.js</p>
+            <h4> {position} </h4>
+            <p>{description}</p>
         </div>
     )
 }

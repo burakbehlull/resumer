@@ -23,11 +23,18 @@ const Profile : React.FC = () =>{
     return(
         <div id='profileUp'>
             <section id='profile'>
-                <Head data={user} />
-                <About data={user} />
+                <Head 
+                    displayName={user?.displayName}
+                    description="xdasdsadsad"
+                    location='istanbul'
+                    links={[
+                        {type: 'email', uri: 'xd'}
+                    ]}
+                />
+                <About text='LOREM İPSUM DOLER DOLARRRR' />
                 <WorkExperience data={user} />
                 <Education data={user} />
-                <Skills data={user} />
+                <Skills skills={["js", "ts", "react"]} />
                 <Languages data={user} />
                 <Projects data={user} />
 

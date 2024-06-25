@@ -7,7 +7,8 @@ const Education : React.FC<IProps> = ({data}) =>{
     return (
         <article className='profileEducation'>
             <h2>Education</h2>
-            <EducationChapter data={data} />
+            <EducationChapter name='fullstack developer' date='2020 - Present' 
+            description='aspdlaslğdaksodapskdjasıdsa' />
         </article>
     )
 }

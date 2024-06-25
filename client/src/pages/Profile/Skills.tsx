@@ -1,17 +1,15 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
+import { SkillsType } from '../../types/index'
 
-const Skills : React.FC<IProps> = ({data}) =>{
+
+
+const Skills : React.FC<SkillsType> = ({skills}) =>{
     
     return (
         <article className='profileSkills'>
             <h1>Skils</h1>
             <div>
-                <pre>Javascript</pre>
-                <pre>Typescript</pre>
-                <pre>NodeJS</pre>
-                <pre>React</pre>
-                <pre>C#</pre>
+                {skills?.map((skill, key)=><pre key={key}>{skill}</pre>)}
             </div>
         </article>
     )

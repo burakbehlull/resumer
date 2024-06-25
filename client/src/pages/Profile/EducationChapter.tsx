@@ -1,15 +1,16 @@
 import React from 'react'
-import {IProps} from '../../types/propsTypes'
+import { EducationType } from '../../types/index'
 
-const EducationChapter : React.FC<IProps> = ({data}) =>{
+
+const EducationChapter : React.FC<EducationType> = ({name, date, description}) =>{
     
     return (
         <div className='chapter'>
             <div>
-                <h4>Fullstack Web Developer</h4>
-                <p>2021 - Present</p>
+                <h4> {name} </h4>
+                <p> {date} </p>
             </div>
-            <p>Leading the development of the Film.io platform. Technologies: React, TypeScript, Node.js</p>
+            <p> {description} </p>
         </div>
     )
 }

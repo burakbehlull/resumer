@@ -1,14 +1,15 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
-const Project : React.FC<IProps> = ({data}) =>{
+import { ProjectType } from '../../types/index'
+
+
+const Project : React.FC<ProjectType> = ({name, description, link, badges}) =>{
     
     return (
         <div className='project'>
-            <h3><a href="#">Live Chat</a></h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos possimus consequuntur iusto dolores</p>
+            <h3><a href={link}> {name} </a></h3>
+            <p> {description} </p>
             <div className='badges'>
-                <pre>javascript</pre>
-                <pre>javascript</pre>
+                {badges?.map((badge, key)=> <pre key={key}> {badge} </pre>)}
             </div>
         </div>
         
