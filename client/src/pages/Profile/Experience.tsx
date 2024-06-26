@@ -1,5 +1,5 @@
 import React from 'react'
-import { ExperienceType } from '../../types/index'
+import { ExperienceType } from '@types'
 
 const Experience : React.FC<ExperienceType> = ({name, type, link, date, position, description}) =>{
     

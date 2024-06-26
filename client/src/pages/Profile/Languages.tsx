@@ -1,6 +1,6 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
-import { Language } from './index'
+import { IProps } from '@types'
+import { Language } from '@profile'
 
 const Languages : React.FC<IProps> = ({data}) =>{
     

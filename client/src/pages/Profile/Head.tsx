@@ -1,5 +1,5 @@
 import React from 'react'
-import {IProps} from '../../types/propsTypes'
+import {IProps} from '@types'
 import Kevin from './kevin.jpg'
 
 type link = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SkillsType } from '../../types/index'
+import { SkillsType } from '@types'
 
 
 

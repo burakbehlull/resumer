@@ -1,5 +1,5 @@
 import React from 'react'
-import { AboutType } from '../../types/index'
+import { AboutType } from '@types'
 
 
 const About : React.FC<AboutType> = ({text}) =>{

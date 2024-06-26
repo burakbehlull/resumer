@@ -1,6 +1,7 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
-import {Project} from './index'
+import { IProps } from '@types'
+import { Project } from '@profile'
+
 const Projects : React.FC<IProps> = ({data}) =>{
     
     return (

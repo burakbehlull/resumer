@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import App from '../App.tsx'
-import Profile from '../pages/Profile/Profile.tsx';
+import { Profile } from '@profile';
 
 function Routes() {
     const routes = useRoutes([

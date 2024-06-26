@@ -1,6 +1,6 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
-import { Experience } from './index'
+import { IProps } from '@types'
+import { Experience } from '@profile'
 
 const WorkExperience : React.FC<IProps> = ({data}) =>{
     

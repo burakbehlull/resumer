@@ -1,6 +1,6 @@
 import React from 'react'
-import { IProps } from '../../types/propsTypes'
-import { EducationChapter } from './index'
+import { IProps } from '@types'
+import { EducationChapter } from '@profile'
 
 const Education : React.FC<IProps> = ({data}) =>{
     

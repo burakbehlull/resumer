@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Head, About, WorkExperience, Education, Skills, Languages, Projects } from './index'
+import { Head, About, WorkExperience, Education, Skills, Languages, Projects } from '@profile'
 
 const Profile : React.FC = () =>{
     const [data, setData] = useState<any>({})

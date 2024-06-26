@@ -1,5 +1,5 @@
 import React from 'react'
-import { LanguageType } from '../../types/index'
+import { LanguageType } from '@types'
 
 
 

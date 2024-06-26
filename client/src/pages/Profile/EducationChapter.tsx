@@ -1,5 +1,5 @@
 import React from 'react'
-import { EducationType } from '../../types/index'
+import { EducationType } from '@types'
 
 
 const EducationChapter : React.FC<EducationType> = ({name, date, description}) =>{

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProjectType } from '../../types/index'
+import { ProjectType } from '@types'
 
 
 const Project : React.FC<ProjectType> = ({name, description, link, badges}) =>{
