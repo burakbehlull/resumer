@@ -1,5 +1,5 @@
 import './main.scss'
-import Header from '@pages/header'
+import { Header } from '@pages'
 function App() {
 
   return (

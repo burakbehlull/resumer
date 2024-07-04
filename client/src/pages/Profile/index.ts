@@ -1,6 +1,10 @@
+// pages
+import Profile from './Profile'
+import CreateProfile from './CreateProfile'
+
+// components
 import Head from './Head'
 import About from './About'
-import Profile from './Profile'
 
 import WorkExperience from './WorkExperience'
 import Experience from './Experience'
@@ -16,6 +20,7 @@ import Projects from './Projects'
 import Project from './Project'
 
 export {
+    CreateProfile,
     Profile,
     Head,
     About,

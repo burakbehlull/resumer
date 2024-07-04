@@ -32,11 +32,20 @@ const Profile : React.FC = () =>{
                     ]}
                 />
                 <About text='LOREM İPSUM DOLER DOLARRRR' />
-                <WorkExperience data={user} />
-                <Education data={user} />
+                <WorkExperience experiences={[{
+                    name: "iş", type:"remote", link:"yok", date:"present - tomorrow", position:"remote", description:"yok"
+                }]} />
+                <Education educations={[{
+                    name:"Town", date:"Now", description:"desc"
+                }]} />
                 <Skills skills={["js", "ts", "react"]} />
-                <Languages data={user} />
-                <Projects data={user} />
+                <Languages languages={[{
+                    name: 'english',
+                    level: 'B2'
+                }]} />
+                <Projects projects={[
+                    {name: 'Resumer', description: "Better project", badges: ["TS", "REACT", "NODE"], link: "URL here"}
+                ]} />
 
             </section>
         </div>

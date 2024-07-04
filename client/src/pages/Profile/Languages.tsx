@@ -1,13 +1,19 @@
-import React from 'react'
-import { IProps } from '@types'
+import React, { Fragment } from 'react'
+import { ILanguageComponentType } from '@types'
 import { Language } from '@profile'
 
-const Languages : React.FC<IProps> = ({data}) =>{
+
+
+const Languages : React.FC<ILanguageComponentType> = ({languages}) =>{
     
     return (
         <article className='profileLanguages'>
             <h2>Languages</h2>
-            <Language name='English' level='advanced' />
+            {languages?.map((language:any, key: number)=>
+            <Fragment key={key}>
+                <Language {...language} />
+            </Fragment>
+            )}
         </article>
     )
 }

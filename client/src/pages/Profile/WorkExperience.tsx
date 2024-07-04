@@ -1,19 +1,18 @@
-import React from 'react'
-import { IProps } from '@types'
+import React, { Fragment } from 'react'
+import { WorkExperienceType } from '@types'
 import { Experience } from '@profile'
 
-const WorkExperience : React.FC<IProps> = ({data}) =>{
-    
+
+
+
+const WorkExperience : React.FC<WorkExperienceType> = ({experiences}) =>{
     return (
         <article className='profileWorkExperience'>
             <h2>Work Experience</h2>
-            <Experience name='Github' 
-                date='2021 - Now' 
-                description='asdladlaslğdaskdaoaskdaoskdasdsakosdasdas'
-                link='https://github'
-                position='web developer'
-                type='remote'
-            />
+            {experiences?.map((data:any, key:number)=><Fragment key={key}>
+                <Experience {...data}/>
+            </Fragment>)}
+            
         </article>
     )
 }

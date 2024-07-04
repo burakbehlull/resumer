@@ -15,8 +15,8 @@ export default defineConfig({
     alias: {
       '~': way('src'),
 	    '@types': way('src/types/index'),
-      '@pages': way('src/pages'),
-      '@store' : way('src/store'),
+      '@pages': way('src/pages/index'),
+      '@store' : way('src/store/index'),
       '@profile': way('src/pages/Profile/index')
     }
   },

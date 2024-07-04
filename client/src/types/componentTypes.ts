@@ -8,7 +8,10 @@ interface ExperienceType extends IExperience {
     date: string,
     position: string
     description: string
+}
 
+interface WorkExperienceType {
+    experiences: any[]
 }
 
 type ILevel = {
@@ -17,6 +20,19 @@ type ILevel = {
 interface LanguageType extends ILevel {
     name: string
 }
+
+interface IProjectsComponentType {
+    projects: any[]
+}
+
+interface IEducation {
+    educations: any[]
+}
+
+interface ILanguageComponentType {
+    languages: any[]
+}
+
 
 interface EducationType {
     name: string,
@@ -39,7 +55,11 @@ interface AboutType {
     text: string
 }
 
-export type {
+export type {,
+    IProjectsComponentType,
+    ILanguageComponentType,
+    IEducation,
+    WorkExperienceType,
     ExperienceType,
     LanguageType,
     EducationType,
