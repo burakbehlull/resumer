@@ -5,11 +5,11 @@ import { Language } from '@profile'
 
 
 const Languages : React.FC<ILanguageComponentType> = ({languages}) =>{
-    
+    console.log("L: ", languages)
     return (
         <article className='profileLanguages'>
             <h2>Languages</h2>
-            {languages?.map((language:any, key: number)=>
+            {languages.map((language:any, key: number)=>
             <Fragment key={key}>
                 <Language {...language} />
             </Fragment>

@@ -55,7 +55,7 @@ interface AboutType {
     text: string
 }
 
-export type {,
+export type {
     IProjectsComponentType,
     ILanguageComponentType,
     IEducation,

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '~/store'
 import { setKeep } from '~/store/slices/keepSlice'
 import { useState } from 'react'
@@ -7,8 +7,12 @@ import { About } from '@profile'
 const AboutPart = () => {
     const [value, setValue] = useState<string>('')
     const dispatch : AppDispatch = useDispatch()
+
+    const { contents } = useSelector((state:any)=> state.keep)
+
     function handleClick(){
         dispatch(setKeep({
+            id: contents.length + 1,
             type: 'ADD_CONTENT',
             payload: {
                 name: 'About',

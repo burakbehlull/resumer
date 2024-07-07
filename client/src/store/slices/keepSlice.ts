@@ -2,12 +2,10 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 interface KeepSliceTypes {
     contents: any[],
-    languages: any[]
 }
 
 const initialState = {
     contents: [],
-    languages: []
 } as KeepSliceTypes
 
 export const keepSlice = createSlice({
@@ -22,9 +20,6 @@ export const keepSlice = createSlice({
                     console.log(2)
                     state.contents.push(action.payload)
                     console.log(state.contents)
-                    break;
-                case 'LANGUAGES':
-                    state.languages.push(action.payload)
                     break;
                 default:
                     return
