@@ -3,24 +3,26 @@ import { IProps } from 'types'
 import { About,Languages } from '@profile'
 import { Modal } from '@components'
 
+import AboutPart from './parts/AboutPart'
+import { useSelector } from 'react-redux'
+
 const CreateProfile : React.FC<IProps> = ({data}) =>{
-    interface ValuesStateTypes{
-        aboutText: string,
+    interface ValuesStateTypes {
         languages: any[],
         languageName: string,
         languageLevel: string
     }
 
 
-    const [contents, setContents] = useState<any[]>([])
+    const [contentsx, setContentsx] = useState<any[]>([])
     
     const [values, setValues] = useState<ValuesStateTypes>({
-            aboutText: '',
             languages: [],
             languageName: '',
             languageLevel: ''
         })
 
+    const { contents } = useSelector((state:any)=> state.keep)
 
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
@@ -36,16 +38,14 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
     }
     return (
         <section className='CreateProfile'>
+            CONTENS: {JSON.stringify(contents)}
+            <button onClick={()=> console.log(contents)}>x</button>
+
+            <br />
             {JSON.stringify(values)}
             <h1>Create Profile</h1>
             <Modal 
-                children={<>
-                    <input type="text" name='aboutText' value={values.aboutText} onChange={handleChange} placeholder='about text'/>
-                    <button onClick={()=> setContents([...contents, {
-                        name: 'About',
-                        component: About({text: values.aboutText})
-                    }])}>About</button>
-                </>}
+                children={<AboutPart />}
             />
             <br /><br /><br />
             <Modal 
@@ -54,7 +54,7 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
                     <input type="text" name='languageLevel' value={values.languageLevel} onChange={handleChange} placeholder='Language Level Here' />
                     <button onClick={LanguageAdd}>Dili Ekle</button>
 
-                    <button onClick={()=> setContents([...contents, {
+                    <button onClick={()=> setContentsx([...contentsx, {
                         name: 'Languages',
                         component: Languages({languages: values.languages})
                     }])}>Languages</button>
@@ -65,7 +65,7 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
             <br /><br />
             <div>
                 {contents?.map((item:any, key:number)=><Fragment key={key}>
-                    {item.component}
+                    {item.payload.component}
                 </Fragment>)}
             </div>
         </section>

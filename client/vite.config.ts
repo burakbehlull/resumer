@@ -17,8 +17,10 @@ export default defineConfig({
 	    '@types': way('src/types/index'),
       '@pages': way('src/pages/index'),
       '@store' : way('src/store/index'),
+      '@slices' : way('src/store/slices'),
       '@profile': way('src/pages/Profile/index'),      
-      '@components': way('src/components/index')      
+      '@components': way('src/components/index'),
+
 
     }
   },

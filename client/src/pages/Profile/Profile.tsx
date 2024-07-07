@@ -33,7 +33,9 @@ const Profile : React.FC = () =>{
                 />
                 <About text='LOREM İPSUM DOLER DOLARRRR' />
                 <WorkExperience experiences={[{
-                    name: "iş", type:"remote", link:"yok", date:"present - tomorrow", position:"remote", description:"yok"
+                    name: "iş", type:"remote", link:"yok", 
+                    date:"present - tomorrow", position:"remote", 
+                    description:"yok"
                 }]} />
                 <Education educations={[{
                     name:"Town", date:"Now", description:"desc"
