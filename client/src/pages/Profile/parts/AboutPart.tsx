@@ -10,6 +10,9 @@ const AboutPart = () => {
 
     const { contents } = useSelector((state:any)=> state.keep)
 
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "About")
+    if(IFilter.length==1) return
+
     function handleClick(){
         dispatch(setKeep({
             id: contents.length + 1,

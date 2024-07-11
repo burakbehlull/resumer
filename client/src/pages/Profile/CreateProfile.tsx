@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
 import { IProps } from 'types'
 import { Modal } from '@components'
+import { useSelector } from 'react-redux'
 
 import AboutPart from './parts/AboutPart'
-import { useSelector } from 'react-redux'
 import LanguagePart from './parts/LanguagesPart'
+import ExperiencePart from './parts/ExperiencePart'
 
 const CreateProfile : React.FC<IProps> = ({data}) =>{
    
@@ -22,6 +23,10 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
             <br />
             <Modal 
                 children={<LanguagePart />}
+            />
+
+            <Modal 
+                children={<ExperiencePart />}
             />
             
         

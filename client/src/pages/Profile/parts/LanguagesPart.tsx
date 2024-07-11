@@ -15,8 +15,8 @@ const LanguagePart = () => {
     const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-
-
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "Languages")
+    if(IFilter.length==1) return
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -36,12 +36,10 @@ const LanguagePart = () => {
     
     return (
         <>
-            {JSON.stringify(languages)}
-            {JSON.stringify(values)}
             <input type="text" name='languageName' value={values.languageName} onChange={handleChange} placeholder='Langugage Name Here' />
             <input type="text" name='languageLevel' value={values.languageLevel} onChange={handleChange} placeholder='Language Level Here' />
             <button onClick={AddLanguage}>Dil Ekle</button>
-
+            <br />
             <button onClick={handleClick}>Tamamla</button>
 
         </>
