@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import AboutPart from './parts/AboutPart'
 import LanguagePart from './parts/LanguagesPart'
 import ExperiencePart from './parts/ExperiencePart'
+import HeadPart from './parts/HeadPart'
 
 const CreateProfile : React.FC<IProps> = ({data}) =>{
    
@@ -17,7 +18,7 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
 
             <br />
             <h1>Create Profile</h1>
-            <Modal 
+            <Modal
                 children={<AboutPart />}
             />
             <br />
@@ -27,6 +28,9 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
 
             <Modal 
                 children={<ExperiencePart />}
+            />            
+            <Modal 
+                children={<HeadPart />}
             />
             
         
