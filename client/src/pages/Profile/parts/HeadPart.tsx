@@ -2,18 +2,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from '~/store'
 import { setKeep } from '~/store/slices/keepSlice'
 import { useState } from 'react'
-import { IExperincePartType } from '@types'
+import { IHeadPartType } from '@types'
 import { Head } from '@profile'
 
 const HeadPart = () => {
-
-    interface IHeadPartType {
-        displayName:string,
-        description:string,
-        location:string,
-        type: string,
-        uri: string,
-    }
 
 
     const [links, setLinks] = useState<any[]>([])

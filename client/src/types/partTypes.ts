@@ -11,7 +11,16 @@ interface IExperincePartType {
     description: string
 }
 
+interface IHeadPartType {
+    displayName:string,
+    description:string,
+    location:string,
+    type: string,
+    uri: string,
+}
+
 export type {
     IAboutPartType,
-    IExperincePartType
+    IExperincePartType,
+    IHeadPartType
 }

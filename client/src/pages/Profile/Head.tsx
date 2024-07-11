@@ -1,17 +1,6 @@
 import React from 'react'
-import {IProps} from '@types'
+import { HeadType } from '@types'
 import Kevin from './kevin.jpg'
-
-type IHeadLinkType = {
-    type: "github" | "website" | "email" | "phone" | "linkedin" | "x",
-    uri: string
-}
-interface HeadType {
-    displayName: string,
-    description: string,
-    location: string,
-    links?: [IHeadLinkType]
-}
 
 const Head : React.FC<HeadType> = ({displayName, description, location, links}) =>{
     return (

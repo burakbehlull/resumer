@@ -9,7 +9,7 @@ const Skills : React.FC<SkillsType> = ({skills}) =>{
         <article className='profileSkills'>
             <h1>Skils</h1>
             <div>
-                {skills?.map((skill, key)=><pre key={key}>{skill}</pre>)}
+                {skills?.map((skill, key)=><pre key={key}>{skill.name}</pre>)}
             </div>
         </article>
     )
