@@ -25,9 +25,18 @@ interface IEducationPartType {
     description: string
 }
 
+interface IProjectPartType {
+    name: string, 
+    description: string, 
+    link: string, 
+    badges: string[] | any[],
+    badgeName: string
+}
+
 export type {
     IAboutPartType,
     IExperincePartType,
     IHeadPartType,
-    IEducationPartType
+    IEducationPartType,
+    IProjectPartType
 }
