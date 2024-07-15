@@ -8,6 +8,7 @@ import LanguagePart from './parts/LanguagesPart'
 import ExperiencePart from './parts/ExperiencePart'
 import HeadPart from './parts/HeadPart'
 import SkillsPart from './parts/SkillsPart'
+import EducationPart from './parts/EducationPart'
 
 const CreateProfile : React.FC<IProps> = ({data}) =>{
    
@@ -26,7 +27,6 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
             <Modal 
                 children={<LanguagePart />}
             />
-
             <Modal 
                 children={<ExperiencePart />}
             />            
@@ -35,6 +35,9 @@ const CreateProfile : React.FC<IProps> = ({data}) =>{
             />
             <Modal 
                 children={<SkillsPart />}
+            />
+            <Modal 
+                children={<EducationPart />}
             />
             
         

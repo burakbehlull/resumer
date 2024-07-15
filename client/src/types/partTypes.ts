@@ -19,8 +19,15 @@ interface IHeadPartType {
     uri: string,
 }
 
+interface IEducationPartType {
+    name: string, 
+    date: Date | string | any, 
+    description: string
+}
+
 export type {
     IAboutPartType,
     IExperincePartType,
-    IHeadPartType
+    IHeadPartType,
+    IEducationPartType
 }
