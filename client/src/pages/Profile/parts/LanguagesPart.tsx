@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { Languages } from '@profile'
 import { IAboutPartType } from '@types'
+import { Limit, AddContent } from '@/helpers'
 
 const LanguagePart = () => {
 
@@ -12,11 +11,10 @@ const LanguagePart = () => {
         languageLevel: ''
     })
     const [languages, setLanguages] = useState<any[]>([])
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "Languages")
-    if(IFilter.length==1) return
+    Limit('Languages')
+
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -24,14 +22,10 @@ const LanguagePart = () => {
         setLanguages([...languages, {name: values.languageName, level: values.languageLevel}])
     }
     function handleClick(){
-        dispatch(setKeep({
-            type: 'ADD_CONTENT',
-            payload: {
-                id: contents.length + 1,
-                name: 'Languages',
-                component: Languages({languages: languages})
-            }
-        }))
+        AddContent({
+            name: 'Languages',
+            component: Languages({languages: languages})
+        })
     }
     
     return (

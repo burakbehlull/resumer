@@ -1,13 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { IEducationPartType } from '@types'
 import { Education } from '@profile'
-
+import { Limit, AddContent } from '@/helpers'
 const EducationPart = () => {
-
-
 
     const [values, setValues] = useState<IEducationPartType>({
         name: '',
@@ -15,11 +11,9 @@ const EducationPart = () => {
         description: ''
     })
     const [educations, setEducations] = useState<any[]>([])
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "Education")
-    if(IFilter.length==1) return
+    Limit('Education')
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -31,14 +25,10 @@ const EducationPart = () => {
         }])
     }
     function handleClick(){
-        dispatch(setKeep({
-            type: 'ADD_CONTENT',
-            payload: {
-                id: contents.length + 1,
-                name: 'Education',
-                component: Education({educations: educations})
-            }
-        }))
+        AddContent({
+            title: 'Education',
+            element: Education({educations: educations})
+        })
     }
     
     return (

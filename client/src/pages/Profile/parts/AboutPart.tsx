@@ -1,27 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { About } from '@profile'
+import { Limit, AddContent } from '@/helpers'
+
 
 const AboutPart = () => {
     const [value, setValue] = useState<string>('')
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
 
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "About")
-    if(IFilter.length==1) return
+    Limit('About')
 
     function handleClick(){
-        dispatch(setKeep({
-            id: contents.length + 1,
-            type: 'ADD_CONTENT',
-            payload: {
-                name: 'About',
-                component: About({text: value})
-            }
-        }))
+        AddContent({
+            name: 'About',
+            component: About({text: value})
+        })
     }
     
     return (

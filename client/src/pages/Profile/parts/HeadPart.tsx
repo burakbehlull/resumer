@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { IHeadPartType } from '@types'
 import { Head } from '@profile'
+import { Limit, AddContent } from '@/helpers'
 
 const HeadPart = () => {
 
@@ -16,12 +15,9 @@ const HeadPart = () => {
         type: '',
         uri: '',
     })
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "Head")
-    if(IFilter.length==1) return
-
+    Limit('Head')
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -35,14 +31,10 @@ const HeadPart = () => {
 
     }
     function handleClick(){
-        dispatch(setKeep({
-            type: 'ADD_CONTENT',
-            payload: {
-                id: contents.length + 1,
-                name: 'Head',
-                component: Head({...values, links: links})
-            }
-        }))
+        AddContent({
+            name: 'Head',
+            component: Head({...values, links: links})
+        })
     }
     
     return (

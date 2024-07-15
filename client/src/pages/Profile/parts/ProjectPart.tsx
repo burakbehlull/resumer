@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { Projects } from '@profile'
 import { IProjectPartType } from '@types'
+import { Limit, AddContent } from '@/helpers'
+
 
 const LanguagePart = () => {
     const [values, setValues] = useState<IProjectPartType>({
@@ -15,11 +15,9 @@ const LanguagePart = () => {
     })
     const [projects, setProjects] = useState<any[]>([])
     const [badges, setBadges] = useState<any[]>([])
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "Projects")
-    if(IFilter.length==1) return
+    Limit('Projects')
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -27,14 +25,10 @@ const LanguagePart = () => {
         setProjects([...projects, {name: values.name, description: values.description, link: values.link}])
     }
     function handleClick(){
-        dispatch(setKeep({
-            type: 'ADD_CONTENT',
-            payload: {
-                id: contents.length + 1,
-                name: 'Projects',
-                component: Projects({projects: projects})
-            }
-        }))
+        AddContent({
+            name: 'Projects',
+            component: Projects({projects: projects})
+        })
     }
     function AddBadge(){
         setBadges([...badges, {name: values.badgeName}])

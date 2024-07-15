@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '~/store'
-import { setKeep } from '~/store/slices/keepSlice'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { Skills } from '@profile'
+import { Limit, AddContent } from '@/helpers'
 
 const SkillsPart = () => {
 
@@ -10,11 +9,9 @@ const SkillsPart = () => {
         name: ''
     })
     const [skills, setSkills] = useState<any[]>([])
-    const dispatch : AppDispatch = useDispatch()
 
     const { contents } = useSelector((state:any)=> state.keep)
-    const IFilter = contents.filter((content:any)=> content?.payload.name == "Skills")
-    if(IFilter.length==1) return
+    Limit('Skills')
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -22,14 +19,10 @@ const SkillsPart = () => {
         setSkills([...skills, {name: values.name}])
     }
     function handleClick(){
-        dispatch(setKeep({
-            type: 'ADD_CONTENT',
-            payload: {
-                id: contents.length + 1,
-                name: 'Skills',
-                component: Skills({skills: skills})
-            }
-        }))
+        AddContent({
+            name: 'Skills',
+            component: Skills({skills: skills})
+        })
     }
     
     return (
