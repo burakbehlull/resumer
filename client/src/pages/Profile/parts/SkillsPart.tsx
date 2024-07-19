@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { Skills } from '@profile'
-import { Limit } from '@/helpers'
 import { setKeep } from '~/store/slices/keepSlice'
 
 const SkillsPart = () => {
@@ -13,7 +12,8 @@ const SkillsPart = () => {
 
     const { contents } = useSelector((state:any)=> state.keep)
     const dispatch = useDispatch()
-    Limit('Skills')
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "Skills")
+    if(IFilter.length==1) return
 
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})

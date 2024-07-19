@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { About } from '@profile'
-import { Limit } from '@/helpers'
+import { setKeep } from '~/store/slices/keepSlice'
 
 
 const AboutPart = () => {
@@ -11,7 +11,8 @@ const AboutPart = () => {
     const dispatch = useDispatch()
 
 
-    Limit('About')
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "About")
+    if(IFilter.length==1) return
 
     function handleClick(){
         dispatch(setKeep({

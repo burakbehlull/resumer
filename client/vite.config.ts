@@ -20,7 +20,6 @@ export default defineConfig({
       '@slices' : way('src/store/slices'),
       '@profile': way('src/pages/Profile/index'),      
       '@components': way('src/components/index'),
-      '@/helpers': way('src/helpers/index'),
 
 
     }

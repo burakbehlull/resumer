@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { IExperincePartType } from '@types'
 import { WorkExperience } from '@profile'
-import { Limit } from '@/helpers'
 import { setKeep } from '~/store/slices/keepSlice'
 
 const ExperiencePart = () => {
@@ -14,7 +13,8 @@ const ExperiencePart = () => {
     const { contents } = useSelector((state:any)=> state.keep)
     const dispatch = useDispatch()
 
-    Limit('WorkExperience')
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "WorkExperience")
+    if(IFilter.length==1) return
 
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})

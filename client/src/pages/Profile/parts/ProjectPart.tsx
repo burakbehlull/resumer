@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { Projects } from '@profile'
 import { IProjectPartType } from '@types'
-import { Limit } from '@/helpers'
 import { setKeep } from '~/store/slices/keepSlice'
 
 
@@ -20,7 +19,8 @@ const LanguagePart = () => {
     const { contents } = useSelector((state:any)=> state.keep)
     const dispatch = useDispatch()
 
-    Limit('Projects')
+    const IFilter = contents.filter((content:any)=> content?.payload.name == "Projects")
+    if(IFilter.length==1) return
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
