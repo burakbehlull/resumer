@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { IExperincePartType } from '@types'
 import { WorkExperience } from '@profile'
-import { Limit, AddContent } from '@/helpers'
+import { Limit } from '@/helpers'
+import { setKeep } from '~/store/slices/keepSlice'
 
 const ExperiencePart = () => {
     const [values, setValues] = useState<IExperincePartType>({
@@ -11,6 +12,8 @@ const ExperiencePart = () => {
     const [experiences, setExperiences] = useState<any[]>([])
 
     const { contents } = useSelector((state:any)=> state.keep)
+    const dispatch = useDispatch()
+
     Limit('WorkExperience')
 
     function handleChange(e:any){
@@ -27,10 +30,14 @@ const ExperiencePart = () => {
         }])
     }
     function handleClick(){
-        AddContent({
-            name: 'WorkExperience',
-            component: WorkExperience({experiences: experiences})
-        })
+        dispatch(setKeep({
+            type: 'ADD_CONTENT',
+            payload: {
+                id: contents.length + 1,
+                name: 'WorkExperience',
+                component: WorkExperience({experiences: experiences})
+            }
+        }))
     }
     
     return (

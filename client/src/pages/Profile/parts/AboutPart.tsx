@@ -1,21 +1,27 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { About } from '@profile'
-import { Limit, AddContent } from '@/helpers'
+import { Limit } from '@/helpers'
 
 
 const AboutPart = () => {
     const [value, setValue] = useState<string>('')
 
     const { contents } = useSelector((state:any)=> state.keep)
+    const dispatch = useDispatch()
+
 
     Limit('About')
 
     function handleClick(){
-        AddContent({
-            name: 'About',
-            component: About({text: value})
-        })
+        dispatch(setKeep({
+            type: 'ADD_CONTENT',
+            payload: {
+                id: contents.length + 1,
+                name: "About",
+                component: About({text: value})
+            }
+        }))
     }
     
     return (

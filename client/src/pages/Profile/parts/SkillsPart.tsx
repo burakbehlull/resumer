@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { Skills } from '@profile'
-import { Limit, AddContent } from '@/helpers'
+import { Limit } from '@/helpers'
+import { setKeep } from '~/store/slices/keepSlice'
 
 const SkillsPart = () => {
 
@@ -11,7 +12,9 @@ const SkillsPart = () => {
     const [skills, setSkills] = useState<any[]>([])
 
     const { contents } = useSelector((state:any)=> state.keep)
+    const dispatch = useDispatch()
     Limit('Skills')
+
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -19,10 +22,14 @@ const SkillsPart = () => {
         setSkills([...skills, {name: values.name}])
     }
     function handleClick(){
-        AddContent({
-            name: 'Skills',
-            component: Skills({skills: skills})
-        })
+        dispatch(setKeep({
+            type: 'ADD_CONTENT',
+            payload: {
+                id: contents.length + 1,
+                name: "Skills",
+                component: Skills({skills: skills})
+            }
+        }))
     }
     
     return (

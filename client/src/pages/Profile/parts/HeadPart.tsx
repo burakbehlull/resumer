@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { IHeadPartType } from '@types'
 import { Head } from '@profile'
-import { Limit, AddContent } from '@/helpers'
+import { Limit } from '@/helpers'
+import { setKeep } from '~/store/slices/keepSlice'
 
 const HeadPart = () => {
 
@@ -17,6 +18,7 @@ const HeadPart = () => {
     })
 
     const { contents } = useSelector((state:any)=> state.keep)
+    const dispatch = useDispatch()
     Limit('Head')
     function handleChange(e:any){
         setValues({...values, [e.target.name]: e.target.value})
@@ -31,10 +33,14 @@ const HeadPart = () => {
 
     }
     function handleClick(){
-        AddContent({
-            name: 'Head',
-            component: Head({...values, links: links})
-        })
+        dispatch(setKeep({
+            type: 'ADD_CONTENT',
+            payload: {
+                id: contents.length + 1,
+                name: "Head",
+                component: Head({...values, links: links})
+            }
+        }))
     }
     
     return (
